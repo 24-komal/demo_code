@@ -1,4 +1,4 @@
 - hosts: localhost
   tasks:
   - name: Checking via the command
-    command: 'echo hello'
+    command: 'ifconfig enp0s3'
