@@ -2,3 +2,7 @@
   tasks:
   - name: Checking via the command
     command: 'ifconfig'
+    register: myconfig
+    
+  - debug:
+     var: myconfig
