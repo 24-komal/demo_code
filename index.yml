@@ -1,6 +1,6 @@
 - hosts: localhost
   tasks:
-  - name: Checking via the command
+  - name: Checking via the command ifconfig
     command: 'ifconfig'
     register: myconfig
     
