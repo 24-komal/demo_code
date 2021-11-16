@@ -1,0 +1,10 @@
+[servers]
+serv1
+serv2
+
+[web]
+serv3
+serv4
+
+[db]
+serv5
