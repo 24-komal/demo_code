@@ -1,8 +1,17 @@
 - hosts: all
   tasks:
-  - name: Checking via the command ifconfig
+  - name: Checking via the command ping
     command: 'ping -c 3 localhost'
     register: myconfig
+    tags:
+    - pinging
+    - ping
+    
+  - name: Checking the ifconfig
+    shell: "ifconfig"
+    tags:
+    - netcheck
+    - check
     
   - debug:
      var: myconfig
