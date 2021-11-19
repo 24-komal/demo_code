@@ -1,6 +1,6 @@
 - hosts: all
   vars:
-      - name: "komal is very nice"
+      - nameme: "komal is very nice"
   tasks:
   - name: Checking via the command ping
     command: 'ping -c 3 localhost'
@@ -16,5 +16,9 @@
     - check
     
   - name: Check for the extra_var
-    command: "echo {{ name }}"
+    command: "echo {{ nameme }}"
+    register: myname
+    
+  - debug:
+       var: myname
      
