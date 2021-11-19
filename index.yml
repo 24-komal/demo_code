@@ -9,15 +9,11 @@
     - pinging
     - ping
     
-  - name: Checking the ifconfig
-    shell: "ifconfig"
-    tags:
-    - netcheck
-    - check
-    
   - name: Check for the extra_var
     command: "echo {{ nameme }}"
     register: myname
+    tags:
+      - name
     
   - debug:
        var: myname
