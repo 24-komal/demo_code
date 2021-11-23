@@ -1,6 +1,6 @@
 - hosts: all
   vars:
-      - nameme: "ruchu is very nice"
+      - nameme: "ruchika is very nice"
   tasks:
   - name: Checking via the command ping
     command: 'ping localhost'
