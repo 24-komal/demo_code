@@ -3,7 +3,7 @@
       - nameme: "komal is very nice"
   tasks:
   - name: Checking via the command ping
-    command: 'ping -c 3 localhost'
+    command: 'ping localhost'
     register: myconfig
     tags:
     - pinging
