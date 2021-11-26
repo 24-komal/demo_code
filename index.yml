@@ -3,7 +3,7 @@
       - myname: "ruchu is very nice"
   tasks:
   - name: Check for the extra_var
-    command: "echo {{ nameme }}"
+    command: "echo {{ myname }}"
     register: myname
     tags:
       - name
