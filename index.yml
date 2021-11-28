@@ -1,6 +1,6 @@
 - hosts: all
   vars:
-      - myname: "ruchu is very nice"
+      - myname: "komal is very nice"
   tasks:
   - name: Check for the extra_var
     command: "echo {{ myname }}"
