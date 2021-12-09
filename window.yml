@@ -6,3 +6,26 @@
     
   - debug:
      var: myconfig
+     
+  - name: Set timezone to 'GMT Standard Time' (GMT)
+    win_timezone:
+      timezone: GMT Standard Time
+    
+  - name: Install git
+    win_chocolatey:
+      name: git
+      state: present
+
+  - name: Upgrade installed packages
+    win_chocolatey:
+      name: all
+      state: latest
+
+  - name: Install notepadplusplus version 6.6
+    win_chocolatey:
+      name: notepadplusplus
+      version: '6.6'
+      
+  - name: Reboot a slow machine that might have lots of updates to apply
+    ansible.windows.win_reboot:
+       reboot_timeout: 3600    
