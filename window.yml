@@ -27,7 +27,8 @@
   - name: Install notepadplusplus version 6.6
     win_chocolatey:
       name: notepadplusplus
-      version: '6.6'
+      architecture: x86
+      state: present
       
   - name: Reboot a slow machine that might have lots of updates to apply
     win_reboot:
