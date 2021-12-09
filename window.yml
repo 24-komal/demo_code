@@ -10,18 +10,10 @@
   - name: Set timezone to 'GMT Standard Time' (GMT)
     win_timezone:
       timezone: GMT Standard Time
-  
-  - name: Add new internal source
-    win_chocolatey_source:
-       name: internal repo
-       state: present
-       source: http://chocolatey-server/chocolatey
       
-  - name: Ensure Chocolatey itself is installed and use internal repo as source
-    win_chocolatey:
-      name: chocolatey
-      source: http://chocolatey-server/chocolatey
-    
+  #have installed chocolatey manually by running this above command in cmdline
+  #@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command " [System.Net.ServicePointManager]::SecurityProtocol = 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin" 
+  
   - name: Install git
     win_chocolatey:
       name: git
