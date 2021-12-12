@@ -1,0 +1,4 @@
+- hosts: all
+  tasks:
+  - name: Searching for an existing AMI in AWS
+    
