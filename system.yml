@@ -1,4 +1,4 @@
-- hosts: timesync-test
+- hosts: all
   vars:
     timesync_ntp_servers:
       - hostname: 0.in.pool.ntp.org
