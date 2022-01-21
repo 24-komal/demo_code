@@ -7,6 +7,7 @@
     register: myname
     tags:
       - name
+  - command: "sleep 30"
       
   - debug:
        var: myname
