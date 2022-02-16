@@ -8,6 +8,9 @@
 
     - set_fact:
         job_api: "{{ lookup('ansible.tower.tower_api', 'jobs/{{ job_id }}', verify_ssl=False) }}"
+        tower_username: admin
+        tower_password: redhat
+        validate_certs: no
 
     - debug:
         var: job_api.execution_node
