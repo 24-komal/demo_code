@@ -1,0 +1,12 @@
+- hosts: all
+  gather_facts: false
+
+  tasks:
+    - set_fact:
+        job_id: "{{ lookup('env', 'JOB_ID') | int }}"
+
+    - set_fact:
+        job_api: "{{ lookup('ansible.tower.tower_api', 'jobs/{{ job_id }}', verify_ssl=False) }}"
+
+    - debug:
+        var: job_api.execution_node
