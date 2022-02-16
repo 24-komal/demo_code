@@ -1,15 +1,8 @@
 - hosts: all
-  gather_facts: true
+  gather_facts: false
   collections:
     - ansible.tower
   tasks:
-    - tower_job_list:
-        status: successful
-        tower_host: localhost
-        tower_username: admin
-        tower_password: redhat
-        validate_certs: no
-        
     - set_fact:
         job_id: "{{ lookup('env', 'JOB_ID') | int }}"
 
