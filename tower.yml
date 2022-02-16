@@ -8,5 +8,5 @@
         status: successful
         tower_host: localhost
         tower_username: admin
-        tower_password: test
+        tower_password: redhat
         validate_certs: no
