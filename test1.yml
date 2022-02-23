@@ -1,0 +1,15 @@
+- name: set a variable for later use
+  hosts: localhost
+
+  tasks:
+    - name: register some value to test in later playbook run
+      set_stats:
+        data:
+          jobid: "{{ tower_job_id }}"
+        aggregate: no
+
+- name: Print uptime on hosts
+  hosts: all
+  tasks:
+    - name: print uptime
+      ansible.builtin.shell: uptime
