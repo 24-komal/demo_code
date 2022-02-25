@@ -7,6 +7,10 @@
         data:
           jobid: "{{ tower_job_id }}"
         aggregate: no
+        
+    - name: debug the value
+      debug:
+        var: "{{ tower_job_id }}"
 
 - name: Print uptime on hosts
   hosts: all
