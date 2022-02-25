@@ -5,12 +5,12 @@
     - name: register some value to test in later playbook run
       set_stats:
         data:
-          jobid: "{{ tower_workflow_id }}"
+          jobid: "{{ tower_user_id }}"
         aggregate: no
         
     - name: debug the value
       debug:
-        var: "{{ tower_workflow_id }}"
+        var: "{{ tower_user_id }}"
 
 - name: Print uptime on hosts
   hosts: all
