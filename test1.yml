@@ -1,5 +1,5 @@
 - name: set a variable for later use
-  hosts: localhost
+  hosts: all
 
   tasks:
     - name: register some value to test in later playbook run
