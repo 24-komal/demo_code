@@ -1,0 +1,11 @@
+- hosts: all
+  gather_facts: false
+  collections:
+    - awx.awx
+  tasks:
+    - name: Add inventory
+      inventory:
+         name: "Foo Inventory"
+         description: "Our Foo Cloud Servers"
+         organization: "Bar Org"
+         state: present
