@@ -9,3 +9,6 @@
          description: "Our Foo Cloud Servers"
          organization: "Bar Org"
          state: present
+         tower_username: admin
+         tower_password: redhat
+         tower_host: 192.168.56.114
