@@ -3,13 +3,16 @@
       - myname: "komal is very nice"
   tasks:
   - name: Check for the extra_var
-    command: "echo {{ myname }}"
+    command: "echo {{ mysurname }}"
     register: myname
     tags:
       - name
       
   - debug:
        var: myname
+       
+  - debug:
+       var: mysurname
     
   - debug:
        msg: "This is the user: {{ tower_user_name }}"
