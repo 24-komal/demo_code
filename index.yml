@@ -3,7 +3,7 @@
       - myname: "komal is very nice"
   tasks:
   - name: Check for the extra_var
-    command: "echo {{ mysurname }}"
+    command: "echo {{ myname }}"
     register: myname
     tags:
       - name
