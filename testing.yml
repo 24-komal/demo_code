@@ -1,0 +1,14 @@
+- hosts: localhost
+  gather_facts: false
+  tasks:
+  - name: echo hello world
+    shell:
+      cmd: "echo hello"
+    async: 120
+    poll: 0
+    register: hello
+
+  - name: wait for interfaces
+    ansible.builtin.async_status:
+      jid: "{{ hello.ansible_job_id }}"
+    register: add_wait
