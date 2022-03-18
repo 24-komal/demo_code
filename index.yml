@@ -1,6 +1,4 @@
 - hosts: all
-  vars_files:
-      - "group_vars/vars"
   vars:
       - myname: "komal is very nice"
   tasks:
@@ -14,7 +12,7 @@
        var: myname
        
   - debug:
-       var: mysurname
+       var: myusername
     
   - debug:
        msg: "This is the user: {{ tower_user_name }}"
