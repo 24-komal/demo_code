@@ -9,10 +9,10 @@
       - name
       
   - debug:
-       var: myname
+       msg: "{{ tower_group }}"
        
   - debug:
-       var: myusername
+       msg: "{{ tower_user_group }}"
     
   - debug:
        msg: "This is the user: {{ tower_user_name }}"
