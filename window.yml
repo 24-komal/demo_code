@@ -7,29 +7,4 @@
   - debug:
      var: myconfig
      
-  - name: Set timezone to 'GMT Standard Time' (GMT)
-    win_timezone:
-      timezone: GMT Standard Time
-      
-  #have installed chocolatey manually by running this above command in cmdline
-  #@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command " [System.Net.ServicePointManager]::SecurityProtocol = 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin" 
   
-  - name: Install git
-    win_chocolatey:
-      name: git
-      state: present
-
-  - name: Upgrade installed packages
-    win_chocolatey:
-      name: all
-      state: latest
-
-  - name: Install notepadplusplus version 6.6
-    win_chocolatey:
-      name: notepadplusplus
-      architecture: x86
-      state: present
-      
-  - name: Reboot a slow machine that might have lots of updates to apply
-    win_reboot:
-       reboot_timeout: 3600    
