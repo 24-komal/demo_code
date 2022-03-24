@@ -3,14 +3,21 @@
       - myname: "komal is very nice"
   tasks:
   - name: Check for the extra_var
-    command: "echo {{ myname }}"
-    register: myname
+    command: date
+    register: datea
     tags:
-      - name
+      - datea
        
-  - debug:
-       msg: "{{ tower_user_group }}"
-    
+  - command: sleep 5
+    register: sleep
+    tags:
+      - sleep
+  
+  - command: date
+    register: dateb
+    tags:
+      - dateb
+   
   - debug:
        msg: "This is the user: {{ tower_user_name }}"
      
