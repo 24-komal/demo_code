@@ -1,0 +1,30 @@
+{
+  "name": "Local User Survey",
+  "description": "",
+  "spec": [
+    {
+      "question_name": "Local User",
+      "question_description": "The name of the local user being targeted",
+      "required": true,
+      "type": "text",
+      "variable": "survey_user",
+      "min": 3,
+      "max": 20,
+      "default": "",
+      "choices": "",
+      "new_question": true
+    },
+    {
+      "question_name": "Requestor's email address",
+      "question_description": "Person to email with new password",
+      "required": false,
+      "type": "text",
+      "variable": "survey_request_mail",
+      "min": 4,
+      "max": 50,
+      "default": "",
+      "choices": "",
+      "new_question": true
+    }
+  ]
+}
