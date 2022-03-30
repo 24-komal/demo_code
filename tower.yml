@@ -6,7 +6,8 @@
   tasks:
     - job_list:
         status: successful
-        tower_host: "192.168.56.39"
-        tower_username: admin
-        tower_password: redhat
+        controller_host: "{{ controller_node }}"
+        controller_username: admin
+        controller_password: redhat
+        controller_oauthtoken: "HSy8PXGT8hk3HjEtNboUsPbHAYLL8j"
         validate_certs: no
