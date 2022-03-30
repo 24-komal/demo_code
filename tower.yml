@@ -2,11 +2,11 @@
 - name: tower_job_list module
   hosts: all
   collections:
-    - ansible.tower
+    - ansible.controller
   tasks:
-    - tower_job_list:
+    - job_list:
         status: successful
-        tower_host: localhost
+        tower_host: "192.168.56.39"
         tower_username: admin
         tower_password: redhat
         validate_certs: no
