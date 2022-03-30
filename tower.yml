@@ -35,4 +35,5 @@
           controller_oauthtoken: "{{ controller_token }}"
           validate_certs: no
           survey_enabled: yes
-          survey_spec: "{{ lookup('file', 'try.yaml') }}" 
+          #survey_spec: "{{ lookup('file', 'try.yaml') }}" 
+          survey_spec: "{{ lookup('file', '{{ playbook_dir }}/{{ try.yaml}}') }}"
