@@ -5,7 +5,7 @@
     - ansible.controller
   tasks:
     - job_list:
-        status: successful
+        status: canceled
         controller_host: "{{ controller_node }}"
         controller_username: admin
         controller_password: redhat
