@@ -15,5 +15,5 @@
           controller_host: "{{ controller_node }}"
           controller_username: admin
           controller_password: redhat
-          controller_oauthtoken: "HSy8PXGT8hk3HjEtNboUsPbHAYLL8j"
+          #controller_oauthtoken: "HSy8PXGT8hk3HjEtNboUsPbHAYLL8j"
           validate_certs: no
