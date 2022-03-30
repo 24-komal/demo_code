@@ -4,10 +4,16 @@
   collections:
     - ansible.controller
   tasks:
-    - job_list:
-        status: canceled
-        controller_host: "{{ controller_node }}"
-        controller_username: admin
-        controller_password: redhat
-        controller_oauthtoken: "HSy8PXGT8hk3HjEtNboUsPbHAYLL8j"
-        validate_certs: no
+    - name: Add user
+      user:
+          username: ruchika
+          password: ruchika
+          email: ruchika@gmail.com
+          first_name: Ruchika
+          last_name: Suthar
+          state: present
+          controller_host: "{{ controller_node }}"
+          controller_username: admin
+          controller_password: redhat
+          controller_oauthtoken: "HSy8PXGT8hk3HjEtNboUsPbHAYLL8j"
+          validate_certs: no
