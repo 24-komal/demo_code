@@ -35,4 +35,4 @@
           controller_oauthtoken: "{{ controller_token }}"
           validate_certs: no
           survey_enabled: yes
-          survey_spec: "{{ lookup('file', 'my_survey.json') }}" 
+          survey_spec: "{{ lookup('file', 'my_survey.yml') }}" 
