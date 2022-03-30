@@ -1,0 +1,24 @@
+--- 
+description: ""
+name: "Local User Survey"
+spec: 
+  - question_name: "Local User"
+    choices: ""
+    default: ""
+    max: 20
+    min: 3
+    new_question: true
+    question_description: "The name of the local user being targeted"
+    required: true
+    type: text
+    variable: survey_user
+  - question_name: "Requestor's email address"
+    choices: ""
+    default: ""
+    max: 50
+    min: 4
+    new_question: true
+    question_description: "Person to email with new password"
+    required: false
+    type: text
+    variable: survey_request_mail
