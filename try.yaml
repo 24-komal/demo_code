@@ -11,9 +11,9 @@ spec: &survey_spec
   default: ''
   choices: ''
   new_question: true
-  - <<: *survey_spec
+- <<: *survey_spec
   question_name: What is the application we are onboarding?
   variable: host_onboard_application
-  - <<: *survey_spec
+- <<: *survey_spec
   question_name: What is the host environment we are onboarding?
   variable: host_onboard_environment
