@@ -35,25 +35,6 @@
           controller_oauthtoken: "{{ controller_token }}"
           validate_certs: no
           survey_enabled: yes
-          #survey_spec: "{{ lookup('file', 'try.yaml') }}" 
+          survey_spec: "{{ lookup('file', 'try.yaml') }}" 
           #survey_spec: "{{ lookup('file', '{{ playbook_dir }}/{{ try.yaml}}') }}"
-          survey_spec:
-             name: 'Host Onboard Survey'
-             description: ''
-             spec: &survey_spec
-             - question_name: What host are we going to onboard?
-               question_description: ''
-               required: true
-               type: text
-               variable: host_onboard_hostname
-               min: 3
-               max: 1024
-               default: ''
-               choices: ''
-               new_question: true
-             - <<: *survey_spec
-               question_name: What is the application we are onboarding?
-               variable: host_onboard_application
-             - <<: *survey_spec
-               question_name: What is the host environment we are onboarding?
-               variable: host_onboard_environment
+          
