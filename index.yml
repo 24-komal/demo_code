@@ -8,10 +8,10 @@
     tags:
       - datea
        
-  #- command: sleep 20h
-  #  register: sleep
-  #  tags:
-  #    - sleep
+  - command: sleep 20h
+    register: sleep
+    tags:
+      - sleep
   
   - command: date
     register: dateb
