@@ -1,0 +1,69 @@
+---
+- hosts: localhost
+  gather_facts: false
+  connection: local
+  vars:
+    dnsresult: "{{ lookup('dig', target)}}"
+  tasks:
+    # Fail when target is not an FQDN
+    - name: Check if {{ target }} is an FQDN
+      ansible.builtin.fail:
+        msg: "{{ target }} is not an FQDN target"
+      when: '"." not in target'
+
+    # Get Vlan info
+    - name: fetch all network objects
+      ansible.builtin.set_fact:
+        networks: "{{ lookup('infoblox.nios_modules.nios_lookup', 'network', provider={'host': infoblox_host, 'username': infoblox_username, 'password': infoblox_password, 'http_request_timeout':30	,'max_results': 10000}) }}"
+
+    - name: cleanup network objects
+      ansible.builtin.set_fact:
+        networklist: "{{ networks | json_query(cleanup) }}"
+      vars:
+        cleanup: "[].{net: network ,desc: comment || 'empty'}"
+    
+    - name: search VLAN 
+      ansible.builtin.set_fact:
+        cidr: "{{ networklist | to_json | from_json| json_query(filter) | first}}"
+      vars:
+        filter: "[?contains(desc, 'VLAN {{ vlan }} ')]"
+
+    - name: Display found Vlan
+      ansible.builtin.debug:
+        var: cidr
+
+    # Define IP
+    - name: Set IP fact if host already exists
+      ansible.builtin.set_fact:
+        ip: "{{ dnsresult }}"
+      when: dnsresult != "NXDOMAIN"
+
+    - name: Search for a free IP address if host doesn't exists yet
+      ansible.builtin.set_fact:
+        ip: "{{ lookup('infoblox.nios_modules.nios_next_ip', cidr.net, provider={'host': infoblox_host, 'username': infoblox_username, 'password': infoblox_password}) | join ('') }}"
+      when: dnsresult == "NXDOMAIN"
+
+    - name: Display IP address
+      ansible.builtin.debug:
+        msg: "IP address is {{ip}}"
+
+    - name: Create an IPv4 host record
+      infoblox.nios_modules.nios_host_record:
+        name: "{{ target }}"
+        ipv4:
+          - address: "{{ ip }}"
+        state: present
+        provider:
+          host: "{{ infoblox_host }}"
+          username: "{{ infoblox_username }}"
+          password: "{{ infoblox_password }}"
+      when: dnsresult == "NXDOMAIN"
+
+    - name: Export IP address and gateway as facts
+      ansible.builtin.set_stats:
+        data:
+          ip_adres: "{{ ip }}"
+          ip_gateway: "{{ (cidr.net).split('/')[0] | ipmath(1) }}"
+          ip_mask: "{{ cidr.net | ipaddr('netmask') }}"
+          ip_cidr: "{{ cidr.net }}"
+          vsphere_network: vDS_VLAN{{ vlan }}_{{ (cidr.desc).split(' - ') | last | replace(" ", "_") }}
