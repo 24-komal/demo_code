@@ -52,7 +52,7 @@
 
         - name: "Provisioning - Package please wait !!! Given value - package {{ package }} state {{ state }} repo {{ repo }}"
           yum:
-            name={{ package|quote }} state={{ state|quote }} enablerepo={{ repo }}
+            name={{ package|quote }} state={{ state|quote }} #enablerepo={{ repo }}
           become: yes
           when:
             - ansible_distribution_major_version >= "7"
