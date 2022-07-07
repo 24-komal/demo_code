@@ -1,0 +1,60 @@
+---
+- name: "*****YUM PLAY*****"
+  hosts: target_hosts
+  gather_facts: yes
+  tasks:
+
+    - name: Fail if not RHEL OS
+      fail:
+        msg: "Installation supported only for RedHat"
+      when: ansible_distribution != "RedHat"
+
+    - name: "Ensure that package is defined and has an approved value. Given value - {{ package }}"
+      assert:
+        that:
+          - package is defined
+          - package|length > 0
+          - not package|string|regex_search('^http://.*$')  # is not a random webserver
+          - not package|string|regex_search('^https://.*$')  # is not a random webserver
+          - not package|string|regex_search('^/.*$')     # is not a random RPM hosted locally
+          - package|string|regex_search('^[A-Za-z0-9 \,\+\:\.\_\-\@\:\/]+$')
+        msg: "The value assigned to 'package' must be valid package and it must be from Engg approved valid YUM repo"
+
+    - name: Log the execuation time info in messages
+      shell: 'logger -i -p syslog.info "OS-Ins/Un-Linux Package Install Using YUM micro service with id of 6263 - Execution started on {{ansible_date_time.date}}-{{ansible_date_time.hour}}:{{ansible_date_time.minute}}:{{ansible_date_time.second}}"'
+      no_log: true
+
+#    - name: yum module stream installation using latest state restriction!!!!
+#      fail:
+#       msg: "Package module stream install using state latest not allowed"
+#      when:
+#      - ansible_distribution_major_version == "8"
+#      - state == "latest"
+#      - package|string|regex_search('^@.*$')
+
+    - block:
+
+      - name: Perl uninstall restriction !!!
+        fail:
+          msg: "Perl uninstall not allowed using this microservice. Perl removal using this microservice causes BOKS to breakdown."
+        when: state == "absent" or state == "removed"
+      when: package == "perl"
+
+    - block:
+
+        - name: "Provisioning - Package please wait !!! Given value - package {{ package }} state {{ state }} repo {{ repo }}"
+          yum:
+            name={{ package|quote }} state={{ state|quote }} enablerepo={{ repo }} update_cache=yes
+          become: yes
+          when:
+            - ansible_distribution_major_version == "6"
+
+
+        - name: "Provisioning - Package please wait !!! Given value - package {{ package }} state {{ state }} repo {{ repo }}"
+          yum:
+            name={{ package|quote }} state={{ state|quote }} enablerepo={{ repo }}
+          become: yes
+          when:
+            - ansible_distribution_major_version >= "7"
+
+      when: state != "list"
