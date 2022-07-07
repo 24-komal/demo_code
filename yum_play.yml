@@ -1,6 +1,6 @@
 ---
 - name: "*****YUM PLAY*****"
-  hosts: all
+  hosts: localhost
   gather_facts: yes
   tasks:
 
