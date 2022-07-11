@@ -1,8 +1,8 @@
 - hosts: localhost
   vars:
-      - myname: "komal is very nice"
+      - myname: "komal "
   tasks:
   - name: Install the '@postgresql:9.6' module stream
     ansible.builtin.yum:
-       name: "@postgresql:9.6"
+       name: "@Developement tools"
        state: present
