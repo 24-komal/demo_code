@@ -4,5 +4,5 @@
   tasks:
   - name: Install the '@postgresql:9.6' module stream
     ansible.builtin.yum:
-       name: "@Developement tools"
+       name: "@postgresql:9.6"
        state: present
