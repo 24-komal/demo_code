@@ -2,12 +2,12 @@
   vars:
       - myname: "komal "
   tasks:
-  - name: Install the 'Development tools' package group
-    ansible.builtin.yum:
-      name: "@Development tools"
-      state: remove
-      
-  #- name: Install the '@postgresql:9.6' module stream
+  #- name: Install the 'Development tools' package group
   #  ansible.builtin.yum:
-  #     name: "@postgresql:9.6"
-  #     state: present
+  #    name: "@Development tools"
+  #    state: remove
+      
+  - name: Install the '@postgresql:9.6' module stream
+    ansible.builtin.yum:
+       name: "@postgresql:9.6"
+       state: present
