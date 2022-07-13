@@ -10,5 +10,5 @@
   - name: Install the '@postgresql:9.6' module stream
     ansible.builtin.yum:
        name: "@postgresql:9.6"
-       state: absent
-       autoremove: yes
+       state: latest
+       #autoremove: yes
