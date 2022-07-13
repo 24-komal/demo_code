@@ -3,6 +3,6 @@
       - myname: "komal "
   tasks:
   - name: Install the '@postgresql:9.6' module stream
-    ansible.builtin.dnf:
+    ansible.builtin.yum:
        name: "@postgresql:9.6"
        state: present
