@@ -8,7 +8,7 @@
   #    state: latest
       
   - name: Install the '@postgresql:9.6' module stream
-    ansible.builtin.dnf:
+    ansible.builtin.yum:
        name: "@postgresql:9.6"
-       state: installed
-       #autoremove: yes
+       state: absent
+       autoremove: yes
