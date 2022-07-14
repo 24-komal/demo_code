@@ -10,5 +10,5 @@
   - name: Install the '@postgresql:9.6' module stream
     ansible.builtin.dnf:
        name: "@postgresql"
-       state: removed
+       state: absent
        autoremove: yes
