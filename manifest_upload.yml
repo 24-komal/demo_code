@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  collections:
+    - ansible.tower # when using ansible.tower
+
+  tasks:
+  - name: Upload manifest
+    tower_license:
+        manifest: "manifest_demo_20220311T060612Z.zip"
+        eula_accepted: yes
+        tower_username: "admin"
+        tower_password: "redhat"
+        tower_host: "192.168.56.52"
+        validate_certs: no
