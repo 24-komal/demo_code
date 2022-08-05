@@ -1,0 +1,25 @@
+---
+- name: Change Power State of All Azure VMs
+  hosts: all
+  gather_facts: False
+
+  vars:
+    # yes / no
+    - new_power_state: 'yes'
+
+  tasks:
+    - name: allocate / de-allocate virtual machines
+      azure.azcollection.azure_rm_virtualmachine:
+        # resourece_group and name are dynamically populated during inventory scan
+        resource_group: "{{ resource_group }}"
+        name: "{{ name }}"
+        allocated: "{{ new_power_state }}"
+      delegate_to: localhost
+
+    - name: power on / off virtual machines
+      azure.azcollection.azure_rm_virtualmachine:
+        resource_group: "{{ azure_group_name }}"
+        name: "{{ name }}"
+        started: "{{ new_power_state }}"
+      delegate_to: localhost
+...
