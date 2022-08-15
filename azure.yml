@@ -15,5 +15,4 @@
         name: "myvm"
         allocated: "start"
       delegate_to: localhost
-
- ...
+...
