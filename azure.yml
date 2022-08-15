@@ -11,15 +11,9 @@
     - name: allocate / de-allocate virtual machines
       azure.azcollection.azure_rm_virtualmachine:
         # resourece_group and name are dynamically populated during inventory scan
-        resource_group: "{{ resource_group }}"
-        name: "{{ name }}"
-        allocated: "{{ new_power_state }}"
+        resource_group: "main"
+        name: "myvm"
+        allocated: "start"
       delegate_to: localhost
 
-    - name: power on / off virtual machines
-      azure.azcollection.azure_rm_virtualmachine:
-        resource_group: "{{ azure_group_name }}"
-        name: "{{ name }}"
-        started: "{{ new_power_state }}"
-      delegate_to: localhost
-...
+ ...
