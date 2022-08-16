@@ -13,6 +13,6 @@
         # resourece_group and name are dynamically populated during inventory scan
         resource_group: "main"
         name: "myvm"
-        allocated: "start"
+        allocated: 1
       delegate_to: localhost
 ...
