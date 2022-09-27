@@ -21,3 +21,5 @@
   - debug:
        msg: "This is the user: {{ tower_user_name }}"
      
+  - debug:
+       msg: "This is the vm_hostname {{ vm_hostname }}"
