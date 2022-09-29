@@ -20,6 +20,9 @@
    
   - debug:
        msg: "This is the user: {{ tower_user_name }}"
+       
+  - debug:
+       msg: "{{ myname }}"
      
   - debug:
-       msg: "This is the vm_hostname {{ vm_hostname }}"
+       var: vm_hostname 
