@@ -1,0 +1,14 @@
+- hosts: all
+  gather_facts: no
+  vars:
+    visa_soe: false
+  tasks:
+  - name: Clear existing facts
+    meta: clear_facts
+    ignore_errors: yes
+    
+  - name: Make Cachable on tower - CMDB Facts on all servers
+    set_fact:
+          visa_soe: "{{ visa_soe | default ('true')}}"
+          cacheable: yes
+    ignore_errors: yes
