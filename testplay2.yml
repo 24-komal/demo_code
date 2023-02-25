@@ -9,6 +9,6 @@
     
   - name: Make Cachable on tower - CMDB Facts on all servers
     set_fact:
-          visa_soe: "{{ visa_soe | default ('true')}}"
+          visa_soe: "{{ visa_soe | default ('false')}}"
           cacheable: yes
     ignore_errors: yes
