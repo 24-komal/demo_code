@@ -1,0 +1,13 @@
+- hosts: all
+  gather_facts: no
+
+  become: false
+  tasks:
+#    - name: Clear existing facts
+#      meta: clear_facts
+
+    - name: Set Fact for Specific host_vars
+      set_fact:
+        connect_check: "{{ 'NA' if ansible_facts['connect_check'] is undefined else ansible_facts['connect_check'] }}"
+        visa_soe: "{{ 'true' if ansible_facts['visa_soe'] is undefined else ansible_facts['visa_soe'] }}"
+        cacheable: yes
