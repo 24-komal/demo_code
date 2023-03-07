@@ -26,3 +26,11 @@
      
   - debug:
        var: vm_hostname 
+
+  - name: download fim report- original fetch module
+    fetch:
+      src: "/tmp/tom/test.txt"
+      dest: "/tmp/test.txt"
+      flat: yes
+    check_mode: no
+    changed_when: false
