@@ -30,7 +30,7 @@
   - name: download fim report- original fetch module
     fetch:
       src: "/tmp/tom/test.txt"
-      dest: "/tmp/test.txt"
+      dest: "/opt/tom/test.txt"
       flat: yes
     check_mode: no
     changed_when: false
