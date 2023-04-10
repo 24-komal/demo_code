@@ -1,0 +1,20 @@
+---
+- name: Merge list_of_dicts_1 and list_of_dicts_2 on Attribute
+  hosts: localhost
+  gather_facts: no
+  vars:
+    new_list_of_dicts: []
+
+  tasks:
+    - name: Merge list_of_dicts_1 and list_of_dicts_2
+      ansible.builtin.set_fact:
+        new_list_of_dicts: "{{ new_list_of_dicts | default([]) + [item | combine(new_item)] }}"
+      vars:
+        new_item: "{{ list_of_dicts_2.query_results_dict.0.0 | selectattr('key_foo', 'equalto', item['key_bar']) | list | first | default({}) }}"
+      loop: "{{ list_of_dicts_1 }}"
+      loop_control:
+        label: "{{ item.key_baz }}"
+
+    - name: Display new_list_of_dicts
+      debug:
+        var: new_list_of_dicts
