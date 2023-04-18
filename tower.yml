@@ -4,8 +4,8 @@
   collections:
     - ansible.controller
   tasks:
-  - name: delete host
-    ansible.controller.host:
+    - name: delete host
+      ansible.controller.host:
           name: 192.168.56.111
           inventory: "test"
           state: absent
