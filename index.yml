@@ -5,6 +5,7 @@
   - name: Check for the extra_var
     command: date
     register: datea
+    diff: true
     tags:
       - datea
        
