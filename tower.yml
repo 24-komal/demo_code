@@ -13,6 +13,7 @@
           controller_username: "admin"
           controller_password: "redhat"
           validate_certs: false
+          diff: true
 
 
     - name: Add user
