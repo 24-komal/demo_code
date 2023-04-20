@@ -1,7 +1,7 @@
 - name: root login enabled
   hosts: all
   gather_facts: false
-  tashs:
+  tasks:
   - name: ssh PermitRootlogin
     ansible.builtin.lineinfile:
        dest: /etc/ssh/sshd_config
