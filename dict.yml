@@ -1,0 +1,28 @@
+---
+- name: Merge list_of_dicts_1 and list_of_dicts_2 on Attribute
+  hosts: all
+  gather_facts: no
+
+  vars:
+    list_of_dicts_1:
+      - {key_bar: 1, key_baz: 'baz1', key_foo: 'foo1'}
+      - {key_bar: 2, key_baz: 'baz2', key_foo: 'foo2'}
+      - {key_bar: 3, key_baz: 'baz3', key_foo: 'foo3'}
+
+    list_of_dicts_2:
+      query_results_dict:
+        - [{'key_bar': 1, 'key_x': 'x1', 'key_y': 'y1'}, {'key_bar': 2, 'key_x': 'x2', 'key_y': 'y2'}, {'key_bar': 4, 'key_x': 'x4', 'key_y': 'y4'}]
+        - [{'key_bar': 3, 'key_x': 'x3', 'key_y': 'y3'}, {'key_bar': 4, 'key_x': 'x4', 'key_y': 'y4'}, {'key_bar': 5, 'key_x': 'x5', 'key_y': 'y5'}]
+
+  tasks:
+    - name: Merge list_of_dicts_1 and list_of_dicts_2 on Attribute
+      set_fact:
+        new_list_of_dicts: "{{ new_list_of_dicts | default([]) + [item | combine(new_item)] }}"
+      vars:
+        new_item: "{{ list_of_dicts_2.query_results_dict.0 | selectattr('key_bar','equalto',item['key_bar']) | list | first | default({}) }}"
+      loop: "{{ list_of_dicts_1 }}"
+      loop_control:
+        label: "{{ item.key_baz }}"
+
+    - debug:
+        var: new_list_of_dicts
