@@ -38,8 +38,8 @@
     register: job_template_result
 
   - name: Display job template limit
-      debug:
-        var: job_template_result.json.limit
+    debug:
+      var: job_template_result.json.limit
        
   - name: download fim report- original fetch module
     fetch:
