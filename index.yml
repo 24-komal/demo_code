@@ -26,8 +26,8 @@
        msg: "{{ myname }}"
      
   - debug:
-       var: "limit value is: {{ limit_value }}" 
-
+       var: tower_job_launch_vars['limit_value']
+       
   - name: download fim report- original fetch module
     fetch:
       src: "/tmp/tom/test.txt"
