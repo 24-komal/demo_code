@@ -29,13 +29,13 @@
        var: tower_job_extra_vars['limit']
        
   - name: Fetch job template details
-      uri:
-        url: "http://localhost/api/v2/job_templates/7/"
+    uri:
+      url: "http://localhost/api/v2/job_templates/7/"
         method: GET
         headers:
           Content-Type: "application/json"
           Authorization: "Bearer AEeIM4tFpLphP9EdC50wgBmRw2St1l"
-      register: job_template_result
+    register: job_template_result
 
   - name: Display job template limit
       debug:
