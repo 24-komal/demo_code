@@ -26,7 +26,7 @@
        msg: "{{ myname }}"
      
   - debug:
-       var: ansible_env.TOWER_LIMIT
+       var: tower_limit
        
   - name: download fim report- original fetch module
     fetch:
