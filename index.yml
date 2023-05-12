@@ -30,7 +30,7 @@
        
   - name: Fetch job template details
     uri:
-      url: "http://localhost/api/v2/job_templates/7/"
+      url: "http://192.168.56.104/api/v2/job_templates/7/"
       method: GET
       headers:
           Content-Type: "application/json"
