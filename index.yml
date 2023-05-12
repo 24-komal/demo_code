@@ -35,6 +35,7 @@
       headers:
           Content-Type: "application/json"
           Authorization: "Bearer AEeIM4tFpLphP9EdC50wgBmRw2St1l"
+      validate_certs: no
     register: job_template_result
 
   - name: Display job template limit
