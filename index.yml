@@ -26,7 +26,7 @@
        msg: "{{ myname }}"
      
   - debug:
-       msg: "Limit: {{ tower_job_launch_vars['limit'] }}"
+       var: tower_job_launch_vars['limit'] 
        
   - name: download fim report- original fetch module
     fetch:
