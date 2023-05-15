@@ -14,10 +14,10 @@
   #  tags:
   #    - sleep
   
-  - command: date
-    register: dateb
-    tags:
-      - dateb
+ # - command: date
+ #   register: dateb
+ #   tags:
+ #     - dateb
    
   - debug:
        msg: "This is the user: {{ tower_user_name }}"
@@ -25,27 +25,25 @@
   - debug:
        msg: "{{ myname }}"
      
-  - debug:
-       var: tower_job_extra_vars['limit']
        
-  - name: Fetch job template details
-    uri:
-      url: "http://192.168.56.104/api/v2/job_templates/7/"
-      method: GET
-      headers:
-          Content-Type: "application/json"
-          Authorization: "Bearer AEeIM4tFpLphP9EdC50wgBmRw2St1l"
-      validate_certs: no
-    register: job_template_result
+ # - name: Fetch job template details
+ #   uri:
+ #     url: "http://192.168.56.104/api/v2/job_templates/7/"
+ #     method: GET
+ #     headers:
+ #         Content-Type: "application/json"
+ #         Authorization: "Bearer AEeIM4tFpLphP9EdC50wgBmRw2St1l"
+ #     validate_certs: no
+ #   register: job_template_result
 
-  - name: Display job template limit
-    debug:
-      var: job_template_result.json.limit
+  #- name: Display job template limit
+  #  debug:
+  #    var: job_template_result.json.limit
        
-  - name: download fim report- original fetch module
-    fetch:
-      src: "/tmp/tom/test.txt"
-      dest: "/var/lib/awx/test.txt"
-      flat: yes
-    check_mode: no
-    #changed_when: false
+ # - name: download fim report- original fetch module
+ #   fetch:
+ #     src: "/tmp/tom/test.txt"
+ #     dest: "/var/lib/awx/test.txt"
+ #     flat: yes
+ #   check_mode: no
+ #   #changed_when: false
