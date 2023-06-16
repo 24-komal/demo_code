@@ -13,7 +13,7 @@
           controller_username: "admin"
           controller_password: "redhat"
           validate_certs: false
-          diff: true
+         # diff: true
 
 
     - name: Add user
@@ -27,7 +27,7 @@
           controller_host: "{{ controller_node }}"
           controller_username: "admin"
           controller_password: "redhat"
-          controller_oauthtoken: "{{ controller_token }}"
+#          controller_oauthtoken: "{{ controller_token }}"
           validate_certs: no
           
     - name: Create Ping job template
@@ -44,10 +44,10 @@
           controller_host: "{{ controller_node }}"
           controller_username: "admin"
           controller_password: "redhat"
-          controller_oauthtoken: "{{ controller_token }}"
+#          controller_oauthtoken: "{{ controller_token }}"
           validate_certs: no
           survey_enabled: yes
           #survey_spec: "{{ lookup('file', 'my_survey.yaml') }}" 
-          survey_spec: "{{ lookup('file', 'my_survey.yaml') | from_yaml }}"
+#         survey_spec: "{{ lookup('file', 'my_survey.yaml') | from_yaml }}"
           #survey_spec: "{{ lookup('file', '{{ playbook_dir }}/{{ try.yaml}}') }}"
           
