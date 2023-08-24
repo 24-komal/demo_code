@@ -1,5 +1,5 @@
 - name: root login enabled
-  hosts: all
+  hosts: localhost
   gather_facts: false
   tasks:
   - name: ssh PermitRootlogin
