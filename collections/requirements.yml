@@ -1,7 +1,0 @@
-#---
-#collections:
-# # - name: community.general
-#  - name: ansible.utils
-#  - name: ansible.controller
-#    version: '>=4.3.0'
-#  - name: azure.azcollection
