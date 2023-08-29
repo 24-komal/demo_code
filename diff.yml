@@ -7,7 +7,7 @@
     ansible.builtin.template:
        src: /mytemplates/foo.j2
        dest: /tmp/test
-       owner: root
-       group: root
+       owner: awx
+       group: awx
        mode: '0600'
 ...
