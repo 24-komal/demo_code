@@ -1,10 +1,10 @@
 ---
 - name: test play
-   hosts: all
-   tasks:
+  hosts: all
+  tasks:
 
-     - name: template a file
-        ansible.builtin.template:
-          src: /mytemplates/foo.j2
-          dest: /tmp/test
+  - name: template a file
+    ansible.builtin.template:
+       src: /mytemplates/foo.j2
+       dest: /tmp/test
 ...
