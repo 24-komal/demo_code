@@ -1,0 +1,7 @@
+- name: Test firewalld role
+  hosts: localhost
+  gather_facts: true
+  become: true
+
+  roles:
+    - firewalld_role
