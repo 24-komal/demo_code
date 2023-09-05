@@ -1,0 +1,9 @@
+---
+# tasks file for firewalld_role
+- name: Test firewalld role
+  ansible.builtin.include_role:
+    name: redhat.rhel_system_roles.firewall
+  vars:
+    firewall:
+      - set_default_zone: internal  # set internal as a default zone
+        state: enabled
