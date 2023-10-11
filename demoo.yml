@@ -6,4 +6,4 @@
       fetch:
         src: /etc/filebeat/filebeat.yml
         dest: /root/testing
-        flat: yes
+        #flat: yes
