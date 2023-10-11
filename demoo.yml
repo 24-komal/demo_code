@@ -6,4 +6,7 @@
       fetch:
         src: /etc/filebeat/filebeat.yml
         dest: /root/testing
-        #flat: yes
+        owner: awx
+        group: awx
+        mode: 0775
+        flat: yes
