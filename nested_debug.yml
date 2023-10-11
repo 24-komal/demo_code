@@ -1,0 +1,17 @@
+---
+
+- hosts: localhost
+  gather_facts: false
+
+  vars:
+    msg: 'hello'
+
+  tasks:
+    - debug:
+        var: msg
+  
+    - command: 'ansible-playbook -i localhost debug.yml'
+      register: output
+
+    - debug:
+        var: output.stdout_lines
