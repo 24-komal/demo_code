@@ -5,5 +5,5 @@
     - name: Fetch /etc/filebeat/filebeat.yml
       fetch:
         src: /etc/filebeat/filebeat.yml
-        dest: /tmp/
-        flat: yes
+        dest: /tmp
+        #flat: yes
