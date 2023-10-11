@@ -5,7 +5,7 @@
     - name: Fetch /etc/filebeat/filebeat.yml
       fetch:
         src: /etc/filebeat/filebeat.yml
-        dest: /root/testing
+        dest: /testing
         owner: awx
         group: awx
         mode: 0775
