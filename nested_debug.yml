@@ -10,7 +10,7 @@
     - debug:
         var: msg
   
-    - command: 'ansible-playbook -i localhost debug.yml'
+    - command: 'ansible-runner -i localhost debug.yml'
       register: output
 
     - debug:
