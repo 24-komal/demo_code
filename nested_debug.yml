@@ -10,7 +10,7 @@
     - debug:
         var: msg
   
-    - command: 'ansible-runner run --process-isolation --process-isolation-executable podman /tmp/private -i localhost --playbook debug.yml'
+    - command: 'ansible-runner run --process-isolation  /tmp/private -i localhost --playbook debug.yml'
       register: output
 
     - debug:
