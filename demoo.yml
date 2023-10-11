@@ -9,4 +9,4 @@
         owner: awx
         group: awx
         mode: 0775
-        flat: yes
+        #flat: yes
